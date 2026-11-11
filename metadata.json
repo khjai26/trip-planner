@@ -1,0 +1,6 @@
+{
+  "name": "WanderAI - AI 여행 플래너",
+  "description": "국내부터 해외까지, 탭 몇 번으로 AI가 완성하는 핀터레스트 감성 맞춤 여행 플래너",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
