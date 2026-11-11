@@ -9,25 +9,25 @@ export interface KeywordOption {
 
 export const HERO_MOODBOARD_IMAGES = [
   {
-    url: "/src/assets/images/travel_mood_ocean_1794379153949.jpg",
+    url: "/images/travel_mood_ocean.jpg",
     caption: "제주 해안도로",
     tag: "coastal walk",
     aspect: "tall",
   },
   {
-    url: "/src/assets/images/travel_mood_alley_1794379154303.jpg",
+    url: "/images/travel_mood_alley.jpg",
     caption: "교토 전통 골목길",
     tag: "hidden alley",
     aspect: "normal",
   },
   {
-    url: "/src/assets/images/travel_mood_europe_1794379154453.jpg",
+    url: "/images/travel_mood_europe.jpg",
     caption: "남유럽 노천 카페",
     tag: "golden hour",
     aspect: "normal",
   },
   {
-    url: "/src/assets/images/travel_mood_cafe_1794379155048.jpg",
+    url: "/images/travel_mood_cafe.jpg",
     caption: "여행자 아침 카페",
     tag: "morning coffee",
     aspect: "tall",
@@ -48,7 +48,7 @@ export const TRAVEL_KEYWORDS: KeywordOption[] = [
     name: "카페",
     tag: "#카페",
     description: "감성 인테리어 & 핸드드립 커피",
-    imageUrl: "/src/assets/images/travel_mood_cafe_1794379155048.jpg",
+    imageUrl: "/images/travel_mood_cafe.jpg",
     fallbackColor: "#DFD8D0",
   },
   {
@@ -64,7 +64,7 @@ export const TRAVEL_KEYWORDS: KeywordOption[] = [
     name: "유적지",
     tag: "#유적지",
     description: "세계문화유산 & 고즈넉한 옛 거리",
-    imageUrl: "/src/assets/images/travel_mood_alley_1794379154303.jpg",
+    imageUrl: "/images/travel_mood_alley.jpg",
     fallbackColor: "#D9D2CA",
   },
   {
@@ -80,7 +80,7 @@ export const TRAVEL_KEYWORDS: KeywordOption[] = [
     name: "자연",
     tag: "#자연",
     description: "에메랄드 바다 & 초록빛 능선",
-    imageUrl: "/src/assets/images/travel_mood_ocean_1794379153949.jpg",
+    imageUrl: "/images/travel_mood_ocean.jpg",
     fallbackColor: "#CCD8CE",
   },
   {
@@ -104,7 +104,7 @@ export const TRAVEL_KEYWORDS: KeywordOption[] = [
     name: "사진명소",
     tag: "#사진명소",
     description: "인생샷을 남길 수 있는 뷰포인트",
-    imageUrl: "/src/assets/images/travel_mood_europe_1794379154453.jpg",
+    imageUrl: "/images/travel_mood_europe.jpg",
     fallbackColor: "#E0D7D0",
   },
   {

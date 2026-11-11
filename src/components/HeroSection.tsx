@@ -53,10 +53,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToForm }) => {
                     src={item.url}
                     alt={item.caption}
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).classList.add("opacity-0");
+                    }}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Subtle Scrim */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none" />
 
                   {/* Caption & Tag */}
                   <div className="absolute bottom-3 left-3 right-3 text-white">

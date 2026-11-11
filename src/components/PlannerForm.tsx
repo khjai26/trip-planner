@@ -927,6 +927,9 @@ export const PlannerForm: React.FC<PlannerFormProps> = ({ onSubmit, isLoading })
                     src={item.imageUrl}
                     alt={item.name}
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).classList.add("opacity-0");
+                    }}
                     className={`w-full h-full object-cover transition-transform duration-500 ${
                       isSelected
                         ? "brightness-75"

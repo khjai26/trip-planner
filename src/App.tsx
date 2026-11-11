@@ -6,6 +6,7 @@ import { LoadingView } from "./components/LoadingView";
 import { ResultSection } from "./components/ResultSection";
 import { MyBoardModal } from "./components/MyBoardModal";
 import { PlannerFormData, TravelPlanResponse, SavedPlace, PlanPlace } from "./types/travel";
+import { generateCuratedPlan } from "./utils/curatedPlanner";
 import { AlertCircle, RefreshCw, Compass } from "lucide-react";
 
 export default function App() {
@@ -74,7 +75,11 @@ export default function App() {
       const result = await response.json();
 
       if (!response.ok || !result.success) {
-        throw new Error(result.message || "여행 일정을 생성하는 중 오류가 발생했습니다.");
+        console.warn("API unavailable, falling back to client curated itinerary:", result?.message);
+        const fallback = generateCuratedPlan(formData);
+        setCurrentPlan(fallback);
+        setTimeout(() => scrollToResults(), 50);
+        return;
       }
 
       setCurrentPlan(result.data);
@@ -83,15 +88,11 @@ export default function App() {
       }, 50);
     } catch (err: any) {
       clearTimeout(timeoutId);
-      console.error("Plan creation error:", err);
-      if (err.name === "AbortError") {
-        setError("일정 생성 시간이 초과되었습니다. 다시 시도해주세요.");
-      } else {
-        setError(
-          err?.message ||
-            "일정을 생성하는 과정에서 일시적인 통신 오류가 발생했습니다. 잠시 후 다시 시도해주세요."
-        );
-      }
+      console.warn("Network error or API unavailable, activating client planner engine:", err);
+      // Seamlessly generate plan so user on static Vercel deployment never sees an error
+      const fallback = generateCuratedPlan(formData);
+      setCurrentPlan(fallback);
+      setTimeout(() => scrollToResults(), 50);
     } finally {
       setIsLoading(false);
     }
